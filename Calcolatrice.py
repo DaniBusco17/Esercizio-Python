@@ -1,16 +1,16 @@
 from os import system
 
 class Calcolatrice:
-
-    def __init__(self,n1,n2) -> None:
-        self.__n1=n1
-        self.__n2=n2
-    def somma(self):
-        return self.__n1+self.__n2
-
     def sottrazione(self):
         return self.__n1 - self.__n2
     
+    def divisione(self):
+        try:
+            nr = self.__n1/self.__n2
+            return nr
+        except ZeroDivisionError:
+            return "ERRORE: impossibile dividere per 0"
+        
     def radice(self):
         return self.__n1**(1/self.__n2)
 
@@ -41,19 +41,16 @@ def menu():
 
 def main():
     print("\nCalcolatrice\n")
-    n1=float(input("dammi un numero: "))
-    n2=float(input("dammi un  altro numero: "))
-    calc=Calcolatrice(n1,n2)
+    calc = Calcolatrice()
+    n1 = ""
+    n2 = ""
     while True:
         lista = menu()
         match lista:
             case 1:
-          
-                print("somma: ",calc.somma())
-
+                pass
             case 2:
-              
-                print("differenza: ",calc.sottrazione())
+                calc.sottrazione(n1,n2)
             case 3:
                 pass
             case 4:
@@ -61,12 +58,10 @@ def main():
             case 5:
                 pass
             case 6:
-               
-                print("radice: ",calc.radice())
+                calc.radice(n1,n2)
             case 0:
                 print("\nProgramma terminato. Arrivederci!\n")
                 break
         input("\nPremi INVIO per continuare...")
         system("cls")               
-
 main()
