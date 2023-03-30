@@ -51,9 +51,12 @@ def menu():
 
 def main():
     print("\nCalcolatrice\n")
-    n1=float(input("Dammi un numero: "))
-    n2=float(input("Dammi un  altro numero: "))
+
+    n1 = float(input("Dammi un numero: "))
+    n2 = float(input("Dammi un  altro numero: "))
+
     calc=Calcolatrice(n1,n2)
+    
     while True:
         lista = menu()
         match lista:
@@ -73,6 +76,5 @@ def main():
                 print("\nProgramma terminato. Arrivederci!\n")
                 break
         input("\nPremi INVIO per continuare...")
-        system("cls")               
-
+        system("cls")
 main()
