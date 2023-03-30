@@ -2,22 +2,27 @@ from os import system
 
 class Calcolatrice:
 
-    def __init__(self,n1,n2) -> None:
-        self.__n1=n1
-        self.__n2=n2
+    def __init__(self, n1, n2):
+        self.__n1 = n1
+        self.__n2 = n2
+        
     def somma(self):
-        return self.__n1+self.__n2
+        return self.__n1 + self.__n2
+    
     def sottrazione(self):
         return self.__n1 - self.__n2
     
-    def radice(self):
-        return self.__n1**(1/self.__n2)
-
+    def moltiplicazione(self):
+        return self.__n1 * self.__n2
+    
+    def divisione(self):
+        return self.__n1 / self.__n2
+    
     def potenza(self):
         return self.__n1 ** self.__n2
-
-    def moltiplicazione(self):
-        return self.__n1*self.__n2
+    
+    def radice(self):
+        return self.__n1 ** (1/self.__n2)
 
 def menu():
     menu = """
@@ -35,7 +40,7 @@ def menu():
     print(menu)
     while True:
         try:
-            scelta = int(input("Scegli:"))
+            scelta = int(input("Scegli: "))
             if scelta == 0 or scelta <= 6:
                 break
             else:
@@ -46,28 +51,30 @@ def menu():
 
 def main():
     print("\nCalcolatrice\n")
-    n1=float(input("dammi un numero: "))
-    n2=float(input("dammi un  altro numero: "))
+
+    n1 = float(input("Dammi un numero: "))
+    n2 = float(input("Dammi un  altro numero: "))
+
     calc=Calcolatrice(n1,n2)
+    
     while True:
         lista = menu()
         match lista:
             case 1:
-                print("somma: ",calc.somma())
+                print("somma: ", calc.somma())
             case 2:
-                print("differenza: ",calc.sottrazione())
+                print("differenza: ", calc.sottrazione())
             case 3:
                 print("moltiplicazione: ", calc.moltiplicazione())
             case 4:
-                pass
+                print("divisione: ", calc.divisione())
             case 5:
-                print("Potenza: ",calc.potenza())
+                print("Potenza: ", calc.potenza())
             case 6:
-                print("radice: ",calc.radice())
+                print("radice: ", calc.radice())
             case 0:
                 print("\nProgramma terminato. Arrivederci!\n")
                 break
         input("\nPremi INVIO per continuare...")
-        system("cls")               
-
+        system("cls")
 main()
