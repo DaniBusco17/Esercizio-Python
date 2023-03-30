@@ -16,6 +16,9 @@ class Calcolatrice:
     def potenza(self):
         return self.__n1 ** self.__n2
 
+    def moltiplicazione(self):
+        return self.__n1*self.__n2
+
 def menu():
     menu = """
     +----------------------+
@@ -54,7 +57,7 @@ def main():
             case 2:
                 print("differenza: ",calc.sottrazione())
             case 3:
-                pass
+                print("moltiplicazione: ", calc.moltiplicazione())
             case 4:
                 pass
             case 5:
