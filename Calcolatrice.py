@@ -2,14 +2,19 @@ from os import system
 
 class Calcolatrice:
     
-    def potenza(numero, elevazione):
-        return numero ** elevazione
-
+    def __init__(self,n1,n2) -> None:
+        self.__n1=n1
+        self.__n2=n2
+    def somma(self):
+        return self.__n1+self.__n2
     def sottrazione(self):
         return self.__n1 - self.__n2
     
     def radice(self):
         return self.__n1**(1/self.__n2)
+
+    def potenza(numero, elevazione):
+        return numero ** elevazione
 
 def menu():
     menu = """
@@ -38,16 +43,19 @@ def menu():
 
 def main():
     print("\nCalcolatrice\n")
-    calc = Calcolatrice()
-    n1 = ""
-    n2 = ""
+    n1=float(input("dammi un numero: "))
+    n2=float(input("dammi un  altro numero: "))
+    calc=Calcolatrice(n1,n2)
     while True:
         lista = menu()
         match lista:
             case 1:
-                pass
+          
+                print("somma: ",calc.somma())
+
             case 2:
-                calc.sottrazione(n1,n2)
+              
+                print("differenza: ",calc.sottrazione())
             case 3:
                 pass
             case 4:
@@ -55,10 +63,12 @@ def main():
             case 5:
                 calc.potenza(n1,n2)
             case 6:
-                calc.radice(n1,n2)
+               
+                print("radice: ",calc.radice())
             case 0:
                 print("\nProgramma terminato. Arrivederci!\n")
                 break
         input("\nPremi INVIO per continuare...")
         system("cls")               
+
 main()
