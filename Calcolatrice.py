@@ -1,7 +1,7 @@
 from os import system
 
 class Calcolatrice:
-    
+
     def __init__(self,n1,n2) -> None:
         self.__n1=n1
         self.__n2=n2
@@ -13,8 +13,8 @@ class Calcolatrice:
     def radice(self):
         return self.__n1**(1/self.__n2)
 
-    def potenza(numero, elevazione):
-        return numero ** elevazione
+    def potenza(self):
+        return self.__n1 ** self.__n2
 
 def menu():
     menu = """
@@ -50,20 +50,16 @@ def main():
         lista = menu()
         match lista:
             case 1:
-          
                 print("somma: ",calc.somma())
-
             case 2:
-              
                 print("differenza: ",calc.sottrazione())
             case 3:
                 pass
             case 4:
                 pass
             case 5:
-                calc.potenza(n1,n2)
+                print("Potenza: ",calc.potenza())
             case 6:
-               
                 print("radice: ",calc.radice())
             case 0:
                 print("\nProgramma terminato. Arrivederci!\n")
