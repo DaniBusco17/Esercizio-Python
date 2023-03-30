@@ -7,12 +7,14 @@ class Calcolatrice:
         self.__n2=n2
     def somma(self):
         return self.__n1+self.__n2
-
     def sottrazione(self):
         return self.__n1 - self.__n2
     
     def radice(self):
         return self.__n1**(1/self.__n2)
+
+    def potenza(self):
+        return self.__n1 ** self.__n2
 
     def moltiplicazione(self):
         return self.__n1*self.__n2
@@ -51,7 +53,6 @@ def main():
         lista = menu()
         match lista:
             case 1:
-          
                 print("somma: ",calc.somma())
             case 2:
                 print("differenza: ",calc.sottrazione())
@@ -60,9 +61,8 @@ def main():
             case 4:
                 pass
             case 5:
-                pass
+                print("Potenza: ",calc.potenza())
             case 6:
-               
                 print("radice: ",calc.radice())
             case 0:
                 print("\nProgramma terminato. Arrivederci!\n")
